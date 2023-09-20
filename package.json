@@ -1,18 +1,12 @@
 {
-  "name": "node-red-contrib-easy-oracle",
-  "version": "1.0.2",
+  "name": "node-red-contrib-agur-connector",
+  "version": "1.0.0",
   "description": "Easy to use Node-RED oracle database nodes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "node-red",
-    "oracle",
-    "node-red oracle",
-    "easy-oracle",
-    "oracledb"
-  ],
+  "keywords": [],
   "author": "harp-code",
   "license": "MIT",
   "node-red": {
@@ -21,10 +15,10 @@
     }
   },
   "dependencies": {
-    "oracledb": "^5.1.0"
+    "oracledb": "^6.1.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/harp-code/node-red-contrib-easy-oracle.git"
+    "url": "https://github.com/harp-code/node-red-contrib-agur-connector.git"
   }
 }

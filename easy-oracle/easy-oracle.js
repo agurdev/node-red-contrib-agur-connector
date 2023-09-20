@@ -19,11 +19,12 @@ module.exports = function(RED) {
             try {
                 let sql = msg.topic;
                 let binds, options, result;
-
+                let url = `SERVER=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${node.server.host})(PORT=${node.server.port}))(CONNECT_DATA=(SID=${node.server.database})));`;
                 dbConfig =  {
+                    privilege : oracledb.SYSDBA,
                     user: node.server.user,
                     password: node.server.password,
-                    connectString : `${node.server.host}:${node.server.port}/${node.server.database}`,
+                    connectString : url,
                     externalAuth  : false
                   };
                 connection = await oracledb.getConnection(dbConfig);
