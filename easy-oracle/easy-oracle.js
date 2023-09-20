@@ -17,9 +17,10 @@ module.exports = function(RED) {
             let connection;
 
             try {
+                oracledb.initOracleClient({libDir: node.server.clientpath});
                 let sql = msg.topic;
                 let binds, options, result;
-                let url = `SERVER=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${node.server.host})(PORT=${node.server.port}))(CONNECT_DATA=(SID=${node.server.database})));`;
+                let url = `(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${node.server.host})(PORT=${node.server.port}))(CONNECT_DATA=(SID=${node.server.database})))`;
                 dbConfig =  {
                     privilege : oracledb.SYSDBA,
                     user: node.server.user,
@@ -76,6 +77,7 @@ module.exports = function(RED) {
         this.database = n.database;
         this.user = n.user;
         this.password = n.password;
+        this.clientpath = n.clientpath;
     }
 
     //#endregion
