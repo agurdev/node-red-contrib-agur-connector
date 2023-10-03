@@ -27,7 +27,9 @@ module.exports = function(RED) {
                     password: node.server.password,
                     connectString : url,
                     externalAuth  : false
-                  };
+                };
+                if(node.server.role.length > 0)
+                    dbConfig['privilege'] = oracledb[node.server.role];
                 connection = await oracledb.getConnection(dbConfig);
 
                 binds = {};
