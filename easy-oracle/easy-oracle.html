@@ -49,6 +49,10 @@
         <input type="text" id="node-config-input-user">
     </div>
     <div class="form-row">
+        <label for="node-config-input-role"><i class="fa fa-tag"></i> Role</label>
+        <input type="text" id="node-config-input-role">
+    </div>
+    <div class="form-row">
         <label for="node-config-input-password"><i class="fa fa-key"></i> Password</label>
         <input type="password" id="node-config-input-password">
     </div>
@@ -68,6 +72,7 @@
             port: {value:1521,required:true,validate:RED.validators.number()},
             database: {value:"orcl",required:true},
             user: {value:"oracle",required:true},
+            user: {value:"NORMAL",required:true},
             password: {value:"oracle",required:true},
             clientpath: {value: "/opt/oracle/instantclient_21_11", required: true}
         },

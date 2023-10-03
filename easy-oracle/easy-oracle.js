@@ -22,7 +22,7 @@ module.exports = function(RED) {
                 let binds, options, result;
                 let url = `(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${node.server.host})(PORT=${node.server.port}))(CONNECT_DATA=(SID=${node.server.database})))`;
                 dbConfig =  {
-                    privilege : oracledb.SYSDBA,
+                    privilege : oracledb[node.server.role],
                     user: node.server.user,
                     password: node.server.password,
                     connectString : url,
@@ -76,6 +76,7 @@ module.exports = function(RED) {
         this.port = n.port;
         this.database = n.database;
         this.user = n.user;
+        this.role = n.role;
         this.password = n.password;
         this.clientpath = n.clientpath;
     }
